@@ -1,0 +1,35 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: @artifactId@
+
+  # 配置中心
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/xiaopotian1990/SpringCloudConfig.git
+          # username:
+          # password:
+          search-paths: HORSE #可以搜索 HORSE 目录下所有满足条件的 配置文件，用户可以根据需求添加多个目录，目录之间用逗号隔开，
+
+# 注册中心配置
+eureka:
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 10 #Eureka Client 向 Eureka Server发送心跳得时间间隔，默认值30
+  client:
+    service-url:
+      defaultZone: http://admin:admin@horse-eureka:8761/eureka/
+
+# 暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*' #＊来表示包含所有端点的信息，默认情况下， 只是打开了 info、 health 的端点
+  endpoint:
+    health:
+      show-details: always #总是表示详细信息的显
