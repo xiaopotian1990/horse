@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.xiaopotian.horse.common.core.config.JacksonConfig,\
+  com.xiaopotian.horse.common.core.config.MessageSourceConfig,\
+  com.xiaopotian.horse.common.core.config.RestTemplateConfig,\
+  com.xiaopotian.horse.common.core.util.SpringContextHolder

@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+    com.xiaopotian.horse.common.log.LogAutoConfiguration

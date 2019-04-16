@@ -11,6 +11,7 @@
         <module>horse-eureka</module>
         <module>horse-config</module>
         <module>horse-biz</module>
+        <module>horse-common</module>
     </modules>
     <name>${project.artifactId}</name>
     <packaging>pom</packaging>
@@ -52,6 +53,12 @@
 
 
     <dependencies>
+        <!--hutool-->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
         <!--配置文件处理器-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -114,6 +121,13 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>horse-common-bom</artifactId>
+                <version>${project.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
