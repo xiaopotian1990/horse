@@ -11,6 +11,25 @@
 
     <artifactId>horse-common-gateway</artifactId>
     <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <description>网关核心类</description>
 
 
+    <dependencies>
+        <dependency>
+            <groupId>com.xiaopotian</groupId>
+            <artifactId>horse-common-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-gateway-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+        </dependency>
+    </dependencies>
 </project>

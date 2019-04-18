@@ -12,6 +12,7 @@
         <module>horse-config</module>
         <module>horse-biz</module>
         <module>horse-common</module>
+        <module>horse-gateway</module>
     </modules>
     <name>${project.artifactId}</name>
     <packaging>pom</packaging>

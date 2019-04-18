@@ -15,6 +15,8 @@ spring:
         enabled: true
         service-id: horse-config
       label: master
+  profiles:
+    active: dev
 
 # 注册中心配置
 eureka:

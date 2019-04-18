@@ -15,6 +15,7 @@
         <module>horse-common-log</module>
         <module>horse-common-core</module>
         <module>horse-common-bom</module>
+        <module>horse-common-gateway</module>
     </modules>
 
 
