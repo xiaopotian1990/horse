@@ -16,9 +16,13 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Objects;
 
 /**
+ * ==========================================
  * 系统日志工具类
  *
- * @author L.cm
+ * @author : 小破天
+ * @date : 2019-04-11
+ * 博客园：http://www.cnblogs.com/xiaopotian/
+ * ===========================================
  */
 @UtilityClass
 public class SysLogUtils {

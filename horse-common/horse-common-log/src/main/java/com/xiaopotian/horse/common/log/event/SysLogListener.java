@@ -8,8 +8,13 @@ import org.springframework.core.annotation.Order;
 import org.springframework.scheduling.annotation.Async;
 
 /**
- * @author lengleng
+ * ==========================================
  * 异步监听日志事件
+ *
+ * @author : 小破天
+ * @date : 2019-04-11
+ * 博客园：http://www.cnblogs.com/xiaopotian/
+ * ===========================================
  */
 @Slf4j
 @AllArgsConstructor

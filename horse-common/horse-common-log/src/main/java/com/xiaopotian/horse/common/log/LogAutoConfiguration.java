@@ -12,8 +12,9 @@ import org.springframework.scheduling.annotation.EnableAsync;
 /**
  * ==========================================
  * 日志自动配置
- * User: 小破天
- * Date: 2019-04-11
+ *
+ * @author : 小破天
+ * @date : 2019-04-11
  * Time: 16:35
  * 博客园：http://www.cnblogs.com/xiaopotian/
  * ===========================================

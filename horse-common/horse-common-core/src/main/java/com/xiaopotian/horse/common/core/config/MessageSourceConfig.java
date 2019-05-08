@@ -8,9 +8,9 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 /**
  * ==========================================
  * 国际化配置
- * User: 小破天
- * Date: 2019-04-11
- * Time: 13:47
+ *
+ * @author : 小破天
+ * @date : 2019-04-11
  * 博客园：http://www.cnblogs.com/xiaopotian/
  * ===========================================
  */
