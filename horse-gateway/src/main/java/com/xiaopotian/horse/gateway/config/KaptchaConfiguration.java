@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Properties;
 
 /**
- * Created By Idea
+ * Google 的 kaptcha 框架生成验证码
  *
  * @author zouLu
  * @date 2019-04-17 20:38

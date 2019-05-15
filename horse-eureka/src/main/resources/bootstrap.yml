@@ -37,7 +37,7 @@ eureka:
     # 对于api-gateway，如果要迅速获取服务注册状态，可以缩小该值，比如5秒
     registry-fetch-interval-seconds: 5
   server:
-    eviction-interval-timer-in-ms: 4000 #制定EvictionTask定时任务的调度频率，用于剔除过期的实例
+    eviction-interval-timer-in-ms: 4000 #制定EvictionTask定时任务的调度频率，用于剔除过期的实例，解决client下线没有及时通知server的问题
     # 是否开启自我保护模式，生产环境要打开，默认true。当Eureka Server节点在短时间内丢失过多客户端时（可能发生了网络分区故障），那么这个节点就会进入自我保护模式
     enable-self-preservation: false
     renewal-percent-threshold: 0.49 #指定每分钟收到的续约次数的阈值 默认值0.85

@@ -18,6 +18,7 @@ public class DynamicRouteAutoConfiguration {
     /**
      * 配置文件设置为空
      * redis 加载为准
+     * 初始化配置路由定义加载器 从配置文件(GatewayProperties 例如，YML / Properties 等 ) 读取RouteDefinition
      *
      * @return
      */
