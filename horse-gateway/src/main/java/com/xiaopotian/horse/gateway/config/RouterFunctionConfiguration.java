@@ -1,8 +1,11 @@
 package com.xiaopotian.horse.gateway.config;
 
+import com.xiaopotian.horse.gateway.handler.HystrixFallbackHandler;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.reactive.function.server.RouterFunction;
 
 /**
  * ==========================================
@@ -17,5 +20,14 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @AllArgsConstructor
 public class RouterFunctionConfiguration {
-    private final HystrixFallbackHandler
+    private final HystrixFallbackHandler hystrixFallbackHandler;
+
+    /**
+     * RouterFunction 与 @Controller 类中的 @RequestMapping 注解类似
+     * @return
+     */
+    @Bean
+    public RouterFunction routerFunction(){
+
+    }
 }
