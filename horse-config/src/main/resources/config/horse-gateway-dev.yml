@@ -1,0 +1,9 @@
+security:
+  encode:
+    # 前端密码密钥，必须16位
+    key: '1234567812345678'
+
+# 不校验验证码终端
+ignore:
+  clients:
+    - test
