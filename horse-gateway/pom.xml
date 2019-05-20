@@ -52,6 +52,11 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
+        <!--hutool-->
+        <dependency>
+            <groupId>com.xiaopotian</groupId>
+            <artifactId>horse-common-core</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

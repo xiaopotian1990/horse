@@ -5,6 +5,7 @@ import com.xiaopotian.horse.biz.order.server.view.ConfigVM;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -23,7 +24,8 @@ public class ConfigController {
     private HorseConfigProperties config;
 
     @GetMapping("/config")
-    public ConfigVM config() {
+    public ConfigVM config(@RequestParam Integer param) {
+        int i = 1 / param;
         log.info("name:{};age:{}", config.getName(), config.getAge());
         return new ConfigVM(config.getName(), config.getAge());
     }
