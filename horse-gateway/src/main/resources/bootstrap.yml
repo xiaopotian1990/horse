@@ -13,8 +13,14 @@ spring:
       discovery:
         enabled: true
         service-id: horse-config
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
   profiles:
     active: dev
+
 
 # 注册中心配置
 eureka:

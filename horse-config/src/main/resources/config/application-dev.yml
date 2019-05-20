@@ -8,6 +8,7 @@ spring:
     password:
     host: redis
     database: 15
+    port: 6389
   # zipkin
   zipkin:
     enabled: true
