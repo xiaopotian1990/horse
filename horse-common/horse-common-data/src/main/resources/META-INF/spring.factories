@@ -1,0 +1,8 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+    com.xiaopotian.horse.common.data.cache.RedisTemplateConfig,\
+    com.xiaopotian.horse.common.data.cache.RedisCacheManagerConfig,\
+    com.xiaopotian.horse.common.data.cache.RedisCacheAutoConfiguration,\
+    com.xiaopotian.horse.common.data.tenant.HorseTenantConfigProperties,\
+    com.xiaopotian.horse.common.data.tenant.TenantContextHolderFilter,\
+    com.xiaopotian.horse.common.data.tenant.HorseFeignTenantConfiguration,\
+    com.xiaopotian.horse.common.data.mybatis.MybatisPlusConfig
