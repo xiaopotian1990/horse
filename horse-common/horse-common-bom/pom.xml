@@ -39,6 +39,16 @@
                 <artifactId>horse-common-gateway</artifactId>
                 <version>${horse.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.xiaopotian</groupId>
+                <artifactId>horse-common-data</artifactId>
+                <version>${horse.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xiaopotian</groupId>
+                <artifactId>horse-common-security</artifactId>
+                <version>${horse.version}</version>
+            </dependency>
 
             <!--mybatis plus extension,包含了mybatis plus core-->
             <dependency>

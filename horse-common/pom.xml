@@ -16,6 +16,8 @@
         <module>horse-common-core</module>
         <module>horse-common-bom</module>
         <module>horse-common-gateway</module>
+        <module>horse-common-data</module>
+        <module>horse-common-security</module>
     </modules>
 
 

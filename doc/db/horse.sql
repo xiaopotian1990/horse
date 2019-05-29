@@ -230,7 +230,7 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_route_conf`;
 CREATE TABLE `sys_route_conf` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `id` char(32) NOT NULL  COMMENT '主键',
   `route_name` varchar(30) DEFAULT NULL COMMENT '路由名称',
   `route_id` varchar(30) NOT NULL DEFAULT '' COMMENT '路由ID',
   `predicates` json DEFAULT NULL COMMENT '断言',
@@ -239,15 +239,24 @@ CREATE TABLE `sys_route_conf` (
   `order` int(2) DEFAULT '0' COMMENT '排序',
   `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  `version` int(11) NOT NULL DEFAULT 0 COMMENT '乐观锁',
   `del_flag` char(1) DEFAULT '0' COMMENT '删除标记',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC COMMENT='路由配置表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC COMMENT='路由配置表';
 
 -- ----------------------------
 --  Records of `sys_route_conf`
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_route_conf` VALUES ('1', '工作流管理模块', 'pigx-activiti', '[{\"args\": {\"_genkey_0\": \"/act/**\"}, \"name\": \"Path\"}]', '[]', 'lb://pigx-activiti', '0', '2019-03-26 22:46:09', '2019-03-26 22:47:46', '0'), ('2', '认证中心', 'pigx-auth', '[{\"args\": {\"_genkey_0\": \"/auth/**\"}, \"name\": \"Path\"}]', '[{\"args\": {}, \"name\": \"ValidateCodeGatewayFilter\"}, {\"args\": {}, \"name\": \"PasswordDecoderFilter\"}]', 'lb://pigx-auth', '0', '2019-03-26 22:46:09', '2019-03-26 22:47:48', '0'), ('3', '代码生成模块', 'pigx-codegen', '[{\"args\": {\"_genkey_0\": \"/gen/**\"}, \"name\": \"Path\"}]', '[]', 'lb://pigx-codegen', '0', '2019-03-26 22:46:09', '2019-03-26 22:47:52', '0'), ('4', 'elastic-job定时任务模块', 'pigx-daemon-elastic-job', '[{\"args\": {\"_genkey_0\": \"/daemon/**\"}, \"name\": \"Path\"}]', '[]', 'lb://pigx-daemon-elastic-job', '0', '2019-03-26 22:46:09', '2019-03-26 22:47:59', '0'), ('5', 'quartz定时任务模块', 'pigx-daemon-quartz', '[{\"args\": {\"_genkey_0\": \"/job/**\"}, \"name\": \"Path\"}]', '[]', 'lb://pigx-daemon-quartz', '0', '2019-03-26 22:46:09', '2019-03-26 22:48:02', '0'), ('6', '分布式事务模块', 'pigx-tx-manager', '[{\"args\": {\"_genkey_0\": \"/tx/**\"}, \"name\": \"Path\"}]', '[]', 'lb://pigx-tx-manager', '0', '2019-03-26 22:46:09', '2019-03-26 22:48:04', '0'), ('7', '通用权限模块', 'pigx-upms-biz', '[{\"args\": {\"_genkey_0\": \"/admin/**\"}, \"name\": \"Path\"}]', '[{\"args\": {\"key-resolver\": \"#{@remoteAddrKeyResolver}\", \"redis-rate-limiter.burstCapacity\": \"20\", \"redis-rate-limiter.replenishRate\": \"10\"}, \"name\": \"RequestRateLimiter\"}, {\"args\": {\"name\": \"default\", \"fallbackUri\": \"forward:/fallback\"}, \"name\": \"Hystrix\"}]', 'lb://pigx-upms-biz', '0', '2019-03-26 22:46:09', '2019-03-26 22:48:07', '0'), ('8', '工作流长链接支持1', 'pigx-activiti-ws-1', '[{\"args\": {\"_genkey_0\": \"/act/ws/info/**\"}, \"name\": \"Path\"}]', '[]', 'lb://pigx-activiti', '0', '2019-03-26 22:46:09', '2019-03-26 22:48:10', '0'), ('9', '工作流长链接支持2', 'pigx-activiti-ws-2', '[{\"args\": {\"_genkey_0\": \"/act/ws/**\"}, \"name\": \"Path\"}]', '[]', 'lb:ws://pigx-activiti', '100', '2019-03-26 22:46:09', '2019-03-26 22:48:13', '0');
+INSERT INTO `sys_route_conf` VALUES ('1', '工作流管理模块', 'pigx-activiti', '[{\"args\": {\"_genkey_0\": \"/act/**\"}, \"name\": \"Path\"}]', '[]', 'lb://pigx-activiti', '0', '2019-03-26 22:46:09', '2019-03-26 22:47:46', 0, '0'),
+ ('2', '认证中心', 'pigx-auth', '[{\"args\": {\"_genkey_0\": \"/auth/**\"}, \"name\": \"Path\"}]', '[{\"args\": {}, \"name\": \"ValidateCodeGatewayFilter\"}, {\"args\": {}, \"name\": \"PasswordDecoderFilter\"}]', 'lb://pigx-auth', '0', '2019-03-26 22:46:09', '2019-03-26 22:47:48', 0, '0'),
+('3', '代码生成模块', 'pigx-codegen', '[{\"args\": {\"_genkey_0\": \"/gen/**\"}, \"name\": \"Path\"}]', '[]', 'lb://pigx-codegen', '0', '2019-03-26 22:46:09', '2019-03-26 22:47:52', 0, '0'),
+ ('4', 'elastic-job定时任务模块', 'pigx-daemon-elastic-job', '[{\"args\": {\"_genkey_0\": \"/daemon/**\"}, \"name\": \"Path\"}]', '[]', 'lb://pigx-daemon-elastic-job', '0', '2019-03-26 22:46:09', '2019-03-26 22:47:59', 0, '0'),
+('5', 'quartz定时任务模块', 'pigx-daemon-quartz', '[{\"args\": {\"_genkey_0\": \"/job/**\"}, \"name\": \"Path\"}]', '[]', 'lb://pigx-daemon-quartz', '0', '2019-03-26 22:46:09', '2019-03-26 22:48:02', 0, '0'),
+ ('6', '分布式事务模块', 'pigx-tx-manager', '[{\"args\": {\"_genkey_0\": \"/tx/**\"}, \"name\": \"Path\"}]', '[]', 'lb://pigx-tx-manager', '0', '2019-03-26 22:46:09', '2019-03-26 22:48:04', 0, '0'),
+('7', '通用权限模块', 'pigx-upms-biz', '[{\"args\": {\"_genkey_0\": \"/admin/**\"}, \"name\": \"Path\"}]', '[{\"args\": {\"key-resolver\": \"#{@remoteAddrKeyResolver}\", \"redis-rate-limiter.burstCapacity\": \"20\", \"redis-rate-limiter.replenishRate\": \"10\"}, \"name\": \"RequestRateLimiter\"}, {\"args\": {\"name\": \"default\", \"fallbackUri\": \"forward:/fallback\"}, \"name\": \"Hystrix\"}]', 'lb://pigx-upms-biz', '0', '2019-03-26 22:46:09', '2019-03-26 22:48:07', 0, '0'),
+ ('8', '工作流长链接支持1', 'pigx-activiti-ws-1', '[{\"args\": {\"_genkey_0\": \"/act/ws/info/**\"}, \"name\": \"Path\"}]', '[]', 'lb://pigx-activiti', '0', '2019-03-26 22:46:09', '2019-03-26 22:48:10', 0, '0'),
+('9', '工作流长链接支持2', 'pigx-activiti-ws-2', '[{\"args\": {\"_genkey_0\": \"/act/ws/**\"}, \"name\": \"Path\"}]', '[]', 'lb:ws://pigx-activiti', '100', '2019-03-26 22:46:09', '2019-03-26 22:48:13', 0, '0');
 COMMIT;
 
 -- ----------------------------

@@ -14,26 +14,16 @@ spring:
         enabled: true
         # 服务名小写
         service-id: horse-config
-    gateway:
-
-      routes:
-        - id: requestratelimiter_route
-          uri: www.baidu.com
-          order: 0
-          predicates:
-            - Path=/admin/**
-          filters:
-            - name: RequestRateLimiter
-              args:
-                redis-rate-limiter.replenishRate: 1  # 令牌桶的容积
-                redis-rate-limiter.burstCapacity: 3  # 流速 每秒
-                key-resolver: "#{@remoteAddrKeyResolver}" #SPEL表达式去的对应的bean
-            - StripPrefix=1
-        
+  autoconfigure:
+    exclude: org.springframework.cloud.gateway.config.GatewayAutoConfiguration,org.springframework.cloud.gateway.config.GatewayClassPathWarningAutoConfiguration
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: qwer1234
+    url: jdbc:mysql://mysql:3306/horse?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
 
   profiles:
     active: dev
-
 
 # 注册中心配置
 eureka:

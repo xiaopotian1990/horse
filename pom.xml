@@ -13,6 +13,7 @@
         <module>horse-biz</module>
         <module>horse-common</module>
         <module>horse-gateway</module>
+        <module>horse-code-generator</module>
     </modules>
     <name>${project.artifactId}</name>
     <packaging>pom</packaging>
@@ -50,6 +51,7 @@
         <security.oauth.version>2.3.5.RELEASE</security.oauth.version>
         <security.oauth.auto.version>2.1.2.RELEASE</security.oauth.auto.version>
         <activiti.version>5.22.0</activiti.version>
+        <mysql.connector.version>8.0.13</mysql.connector.version>
     </properties>
 
 
