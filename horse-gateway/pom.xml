@@ -57,6 +57,14 @@
             <groupId>com.xiaopotian</groupId>
             <artifactId>horse-common-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.xiaopotian</groupId>
+            <artifactId>horse-common-data</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.xiaopotian</groupId>
+            <artifactId>horse-common-security</artifactId>
+        </dependency>
         <!--mybatis plus extension,包含了mybatis plus core-->
         <dependency>
             <groupId>com.baomidou</groupId>
@@ -76,6 +84,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.xiaopotian</groupId>
+            <artifactId>horse-common-log</artifactId>
         </dependency>
     </dependencies>
 

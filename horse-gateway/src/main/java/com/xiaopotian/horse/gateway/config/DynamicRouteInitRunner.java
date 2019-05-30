@@ -25,6 +25,7 @@ import java.net.URI;
 /**
  * ==========================================
  * 容器启动后保存配置文件里面的路由信息到Redis
+ *
  * @author : 小破天
  * @date : 2019-05-28 18:43
  * 博客园：http://www.cnblogs.com/xiaopotian/
@@ -43,12 +44,12 @@ public class DynamicRouteInitRunner {
     @Async
     @Order
     @EventListener({WebServerInitializedEvent.class, DynamicRouteInitEvent.class})
-    public void initRoute(){
+    public void initRoute() {
         Boolean result = redisTemplate.delete(CommonConstants.ROUTE_KEY);
-        log.info("初始化路由网关，result：{}",result);
+        log.info("初始化路由网关，result：{}", result);
 
-        routeConfService.list().forEach(u->{
-            RouteDefinitionVo vo=new RouteDefinitionVo();
+        routeConfService.list().forEach(u -> {
+            RouteDefinitionVo vo = new RouteDefinitionVo();
             vo.setRouteName(u.getRouteName());
             vo.setId(u.getRouteId());
             vo.setUri(URI.create(u.getUri()));
@@ -60,9 +61,9 @@ public class DynamicRouteInitRunner {
             JSONArray predicate = JSONUtil.parseArray(u.getPredicates());
             vo.setPredicates(predicate.toList(PredicateDefinition.class));
 
-            log.info("加载路由ID：{}，{}",u.getRouteId(),vo);
+            log.info("加载路由ID：{}，{}", u.getRouteId(), vo);
             redisTemplate.setHashValueSerializer(new Jackson2JsonRedisSerializer<>(RouteDefinitionVo.class));
-            redisTemplate.opsForHash().put(CommonConstants.ROUTE_KEY,u.getRouteId(),vo);
+            redisTemplate.opsForHash().put(CommonConstants.ROUTE_KEY, u.getRouteId(), vo);
         });
 
         log.debug("初始化网关路由结束 ");
